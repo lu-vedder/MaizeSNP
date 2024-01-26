@@ -1,0 +1,47 @@
+################################################################################
+# Preparations before SNP calling:                                             #
+# -> Convert SAM format to BAM format                                          #
+# -> Add missing readgroups to BAM                                             #
+# -> Create BAM-index                                                          #
+# -> Create FastA-index for the reference                                      #
+# -> Create FastA-dictionary for the reference                                 #
+################################################################################
+
+################################################################################
+# SNP calling merged files (AGPv3, version as above)                           #
+################################################################################
+
+java -jar GenomeAnalysisTK.jar -T HaplotypeCaller -R reference/Zea_mays.AGPv3.fa -I merged/LINE_merge.rg_sort.bam -stand_call_conf 20 -U ALLOW_N_CIGAR_READS -o gatk/LINE_merge_to_AGPv3.vcf
+
+
+################################################################################
+# Filter for "true" SNPs                                                       #
+################################################################################
+
+python scripts/filter_blacklist_merged_SNPs.py gatk/LINE_merge_to_AGPv3.vcf gatk/B73_merge_to_AGPv3.vcf SNPs_LINE_merged_to_AGPv3.tsv
+
+
+################################################################################
+# Count allele frequencies per sample                                          #
+# -> script requires a python2 environment!                                    #
+################################################################################
+
+(py2env) python scripts/count_SNP_alleles_mergedBAM.py SNPs_LINE_merged_to_AGPv3.tsv merged/LINE_merge.rg_sort.bam SNPs_LINE_merged_to_AGPv3.count.tsv
+
+
+################################################################################
+# Select protein-coding genes from reference (AGPv3)                           #
+################################################################################
+
+python scripts/collect_gene_ids_from_gtf.py reference/Zea_mays.AGPv3.gtf reference/protein_coding_genes.AGPv3.tsv
+
+# If the annotation is in gff3 format use the following script
+python scripts/collect_gene_ids_from_gff3.py reference/Zea_mays.B73_RefGen_v4.42.gff3 reference/protein_coding_genes.B73_RefGen_v4.tsv
+
+
+################################################################################
+# Filter "true" SNPs for coding genes (AGPv3)                                  #
+################################################################################
+
+python scripts/filter_merged_snps_for_coding_genes.py reference/protein_coding_genes.AGPv3.tsv SNPs_LINE_merged_to_AGPv3.count.tsv SNPs_LINE_merged_to_AGPv3.count.codingGenes.tsv
+

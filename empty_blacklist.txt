@@ -1,0 +1,2 @@
+# This is just a dummy file.
+# It can be used as an empty blacklist file in the 'filter_blacklist_merged_SNPs.py' script.
