@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Python3.5: filter_blacklist_merged_SNPs.py
@@ -11,11 +12,13 @@ Output: Filtered SNP file of LINE (TSV format)
 
 @date 2017, October 04
 @author Lucia Vedder
+Copyright (c) 2024 Lucia Vedder
 """
 
 from optparse import OptionParser
 
 
+# Filter for SNPs, not included in the blacklist, and write them to output
 def filter_SNPs(in_filter_vcf, bl, out_tsv):
     with open(out_tsv, 'w') as tsv:
         tsv.write("#chromosome\tposition\treference_allele\tSNP_allele\n")
@@ -51,11 +54,13 @@ def filter_SNPs(in_filter_vcf, bl, out_tsv):
                     tsv.write(snp[4]) #SNP_allele
                     tsv.write('\n')
 
+        # Print numbers
         print("Total number of processed SNPs: ", num_total)
         print("Number of SNPs, filtered-out due to given blacklist: ", num_out)
         print("Number of \"true\" SNPs: ", num_in)
 
 
+# Read-in of the SNP blacklist
 def read_bl(in_bl):
     bl = []
     with open(in_bl, 'r') as b:
@@ -69,6 +74,7 @@ def read_bl(in_bl):
     return bl
 
 
+# Run script
 def main():
     parser = OptionParser(usage="Usage= %prog <IN-FILTER_VCF> <IN-BLACKLIST-VCF> <OUT-TSV>")
     (options, args) = parser.parse_args()
@@ -76,6 +82,7 @@ def main():
     blacklist = read_bl(args[1])
 
     filter_SNPs(args[0], blacklist, args[2])
+
 
 
 if __name__ == "__main__":
