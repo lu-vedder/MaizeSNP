@@ -1,0 +1,34 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: MaizeSNP
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Lucia
+    family-names: Vedder
+    email: lvedder@uni-bonn.de
+    affiliation: University of Bonn
+    orcid: 'https://orcid.org/0000-0002-8924-9800'
+repository-code: 'https://github.com/lu-vedder/MaizeSNP'
+abstract: >-
+  The MaizeSNP wolkflow was specifically designed for the
+  SNP analysis of different maize (Zea mays L.) inbred lines
+  in comparison to B73 as a reference line. The final result
+  is a TSV-file, containing a set of SNPs between the
+  respective inbred line and B73, located in the
+  protein-coding regions of maize. Further, this file
+  includes the allele counts, obtained from the original
+  mapping.
+keywords:
+  - SNP analysis
+  - NGS mapping
+  - Maize
+  - Zea mays
+  - B73
+license: MIT
+version: 1.0.0
+date-released: '2024-02-20'
