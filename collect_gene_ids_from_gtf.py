@@ -1,21 +1,23 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Python3.5: collect_gene_ids_from_gtf.py
 
-Collecting the 39,469 gene IDs of the protein coding genes of Zea mays
+Collecting the 39,469 gene IDs of the protein coding genes of Zea mays (reference genome v3)
 
-Input:  Zea_mays.AGPv3.31.gtf
-Output: protein_coding_genes.AGPv3.tsv
+Input:  Zea_mays.AGPv3.31.gtf (reference genome annotation, GTF format)
+Output: protein_coding_genes.AGPv3.tsv (gene set, TSV format)
 
 @author: Lucia Vedder
 @date: 2017, May 9
+Copyright (c) Lucia Vedder 2024
 """
 
 from optparse import OptionParser
 
 
+# Collect the IDs of the protein-coding genes and write them to output (incl. chromosome & position)
 def collect_gene_ids(infile, outfile):
-    
     with open(outfile, 'w') as out:
         out.write('#gene_id\tchromosome\tstart_pos\tend_pos\n')
     
@@ -42,10 +44,9 @@ def collect_gene_ids(infile, outfile):
                         out.write(chromosome), out.write('\t')
                         out.write(start_pos), out.write('\t')
                         out.write (end_pos), out.write('\n')
-                
-                
-                
 
+
+# Run script
 def main():
     
     # handle the command line arguments
@@ -55,6 +56,7 @@ def main():
     
     # start the computaions
     collect_gene_ids(args[0], args[1])
+
 
 
 if __name__ == "__main__":
