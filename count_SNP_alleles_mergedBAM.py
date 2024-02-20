@@ -1,11 +1,12 @@
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Python2.7: count_SNP_alleles_mergedBAM.py
 
+!!!This script requires a python2 environment, because of the pysam package!!!
+
 Count the number of reads matching the Ref/SNP allele using the merges BAM files
 Adapted from 'count_SNP_alleles.py'
-
-!!!Using py2env on cs01!!!
 
 Input:  SNP file, TSV-format (SNPs_LINE_merged_to_AGPv3.tsv)
         Read mapping file, BAM-format (LINE_merged.rg_sort.bam)
@@ -13,12 +14,14 @@ Output: SNP file incl. allele frequencies, TSV-format  (SNPs_LINE_merged_to_AGPv
 
 @author: Lucia Vedder
 @date: 2017, October 09 (original file July 03)
+Copyright (c) Lucia Vedder 2024
 """
 
 from optparse import OptionParser
 import pysam
 
 
+# Count allele frequencies of SNPs, using the pysam package
 def count_alleles(in_snp, in_bam, out_tsv):
     samfile = pysam.AlignmentFile(in_bam, 'rb')
     
@@ -61,6 +64,7 @@ def count_alleles(in_snp, in_bam, out_tsv):
     samfile.close()
 
 
+# Run script
 def main():
     # handle the command line arguments
     parser = OptionParser(usage="Usage: %prog <IN-SNP> <IN-BAM> <OUT-TSV>")
@@ -73,4 +77,3 @@ def main():
 
 if __name__ == "__main__":
    main()
-   
