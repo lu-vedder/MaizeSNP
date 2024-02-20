@@ -34,7 +34,7 @@ Please cite via Zenodo:
 
 
 # License
-Copyright (c) 2024 Lucia Vedder <br>
+Copyright (c) 2024 <a href="https://orcid.org/0000-0002-8924-9800">Lucia Vedder<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a><br>
 For details see the [LICENSE](LICENSE) file.
 
 ---
