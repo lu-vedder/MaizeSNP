@@ -13,6 +13,10 @@ authors:
     email: lvedder@uni-bonn.de
     affiliation: University of Bonn
     orcid: 'https://orcid.org/0000-0002-8924-9800'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.10684044
+    description: Zenodo - Release v1.0.0
 repository-code: 'https://github.com/lu-vedder/MaizeSNP'
 abstract: >-
   The MaizeSNP wolkflow was specifically designed for the
