@@ -30,7 +30,8 @@ Filter the SNPs (TSV-format) for positions located in the protein-coding genes s
 
 
 # Citation
-Please cite via Zenodo: 
+Please cite via Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10684044.svg)](https://doi.org/10.5281/zenodo.10684044) <br>
+Or as: Vedder, L. (2024). MaizeSNP (Version 1.0.0) [Computer software]. https://github.com/lu-vedder/MaizeSNP (for details see the [CITATION](CITATION.cff) file).
 
 
 # License
