@@ -24,6 +24,8 @@ abstract: >-
   includes the allele counts, obtained from the original
   mapping.
 keywords:
+  - Bioinformatics
+  - Genetics
   - SNP analysis
   - NGS mapping
   - Maize
