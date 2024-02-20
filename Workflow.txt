@@ -1,7 +1,10 @@
 ################################################################################
+# Mapping of all merged reads of one inbred-line ('LINE') to the B73           #
+# reference genome (AGPv3) (using Bowtie2: v2.2.9)                             #
+#                                                                              #
 # Preparations before SNP calling:                                             #
-# -> Convert SAM format to BAM format (using Samtools)                         #
-# -> Add missing readgroups to BAM (using Picard)                              #
+# -> Convert SAM format to BAM format (using Samtools: v1.3.1)                 #
+# -> Add missing readgroups to BAM (using Picard: v2.9.0)                      #
 # -> Create BAM-index (using Samtools)                                         #
 # -> Create FastA-index for the reference (using Samtools)                     #
 # -> Create FastA-dictionary for the reference (using Picard)                  #
